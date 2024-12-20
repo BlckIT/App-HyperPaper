@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hyperpaper Settings</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1 {
+      font-size: 24px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hyperpaper Settings</h1>
+  <label for="demo">Select Demo:</label>
+  <select id="demo" name="demo">
+    <option value="maze">Maze</option>
+    <option value="nyan-cat">Nyan Cat</option>
+    <option value="ribbons">Ribbons</option>
+    <option value="fireworks">Fireworks</option>
+    <option value="flow">Flow</option>
+    <option value="space">Space</option>
+  </select>
+  <button id="saveButton">Save</button>
+  <script>
+    const { ipcRenderer } = require('electron');
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('saveButton').addEventListener('click', () => {
+        const demo = document.getElementById('demo').value;
+        console.log(`Selected demo: ${demo}`);
+        ipcRenderer.send('update-demo', demo);
+      });
+    });
+  </script>
+</body>
+</html>

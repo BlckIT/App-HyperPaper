@@ -1,0 +1,17 @@
+{
+  "name": "app-hyperpaper",
+  "version": "1.0.0",
+  "description": "Electron app for setting Windows wallpaper to a custom HTML page",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^25.9.8"
+  },
+  "dependencies": {
+    "regedit": "^5.1.3"
+  },
+  "author": "",
+  "license": "ISC"
+}
